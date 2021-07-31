@@ -98,11 +98,11 @@ async function getCertificate(): Promise<string> {
   if (!signingKeys.length)
     throw new Error('No JWKS signing keys found')
   
-  // XXX: Only handles single signing key
+ 
   const key = signingKeys[0]
-  const pub = key.x5c[0]  // public key
+  const pub = key.x5c[0]
 
-  // Certificate found!
+  
   cachedCertificate = certToPEM(pub)
 
   logger.info('Valid certificate found', cachedCertificate)
